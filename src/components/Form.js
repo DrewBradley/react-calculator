@@ -5,20 +5,19 @@ class Form extends React.Component {
   constructor() {
     super()
     this.state = {
+      number: 0,
       firstNum: 0,
       lastNum: 0,
       answer: "",
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleChange(event) {
-    const {name, value} = event.target
-    this.setState({ [name]: value })
+  handleChange = (event) => {
+    const {value} = event.target
+    !this.state.firstNum ? this.setState({ firstNum: value }) : this.setState({ lastNum: value })
   }
 
-  handleClick(event) {
+  handleClick = (event) => {
     event.preventDefault()
     const first = parseInt(this.state.firstNum)
     const last = parseInt(this.state.lastNum)
@@ -39,28 +38,23 @@ class Form extends React.Component {
   }
 
   render() {
+    const numbers = new Array(10).fill(undefined).map((val, i) => <button>{i}</button>)
     return(
       <form>
-        <label> Input 1
-          <input 
-            type="number"
-            name="firstNum"
-            onChange={this.handleChange}
-            value={this.state.firstNum}
-          />
-        </label>
-        <label> Input 2
-          <input 
-            type="number"
-            name="lastNum"
-            onChange={this.handleChange}
-            value={this.state.lastNum}
-          />
-        </label>
-        <button onClick={this.handleClick} name="add">Add</button>
-        <button onClick={this.handleClick} name="subtract">Subtract</button>
-        <button onClick={this.handleClick} name="multiply">Multiply</button>
-        <button onClick={this.handleClick} name="divide">Divide</button>
+        <input 
+          type="number"
+          name="firstNum"
+          onChange={this.handleChange}
+          value={this.state.number}
+        />
+        <button onClick={this.handleClick} name="add">+</button>
+        <button onClick={this.handleClick} name="subtract">-</button>
+        <button onClick={this.handleClick} name="multiply">x</button>
+        <button onClick={this.handleClick} name="divide">÷</button>
+        <button onClick={this.handleClick} name="divide">=</button>
+        <section className="num-buttons">
+          { numbers }
+        </section>
         <h1 className="answer">Answer: {this.state.answer}</h1>
       </form>
     )
