@@ -16,24 +16,33 @@ body {
 }
 
 .calc-buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  width: 50%;
   margin: auto;
 }
 
 .num-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2%;
 }
 
 .number-button {
   height: 3rem;
   width: 3rem;
+  margin: 2%;
+}
+
+.math-button {
+  margin: 2%;
+  height: 19%;
+  width: 100%;
 }
 
 .math-buttons {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .answer {

@@ -52,11 +52,11 @@ class Form extends React.Component {
             { numbers }
           </section>
           <section className="math-buttons">
-            <button onClick={this.handleClick} name="add">+</button>
-            <button onClick={this.handleClick} name="subtract">-</button>
-            <button onClick={this.handleClick} name="multiply">x</button>
-            <button onClick={this.handleClick} name="divide">÷</button>
-            <button onClick={this.handleClick} name="divide">=</button>
+            <button className="math-button" onClick={this.handleClick} name="add">+</button>
+            <button className="math-button" onClick={this.handleClick} name="subtract">-</button>
+            <button className="math-button" onClick={this.handleClick} name="multiply">x</button>
+            <button className="math-button" onClick={this.handleClick} name="divide">÷</button>
+            <button className="math-button" onClick={this.handleClick} name="equal">=</button>
           </section>
         </section>
         <h1 className="answer">Answer: {this.state.answer}</h1>
