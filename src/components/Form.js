@@ -38,7 +38,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const numbers = new Array(10).fill(undefined).map((val, i) => <button>{i}</button>)
+    const numbers = new Array(9).fill(undefined).map((val, i) => <button className="number-button">{i+1}</button>)
     return(
       <form>
         <input 
@@ -47,13 +47,17 @@ class Form extends React.Component {
           onChange={this.handleChange}
           value={this.state.number}
         />
-        <button onClick={this.handleClick} name="add">+</button>
-        <button onClick={this.handleClick} name="subtract">-</button>
-        <button onClick={this.handleClick} name="multiply">x</button>
-        <button onClick={this.handleClick} name="divide">÷</button>
-        <button onClick={this.handleClick} name="divide">=</button>
-        <section className="num-buttons">
-          { numbers }
+        <section className="calc-buttons">
+          <section className="num-buttons">
+            { numbers }
+          </section>
+          <section className="math-buttons">
+            <button onClick={this.handleClick} name="add">+</button>
+            <button onClick={this.handleClick} name="subtract">-</button>
+            <button onClick={this.handleClick} name="multiply">x</button>
+            <button onClick={this.handleClick} name="divide">÷</button>
+            <button onClick={this.handleClick} name="divide">=</button>
+          </section>
         </section>
         <h1 className="answer">Answer: {this.state.answer}</h1>
       </form>
