@@ -57,11 +57,11 @@ class Form extends React.Component {
             value={this.state.lastNum}
           />
         </label>
-        <h1 className="answer">Answer: {this.state.answer}</h1>
         <button onClick={this.handleClick} name="add">Add</button>
         <button onClick={this.handleClick} name="subtract">Subtract</button>
         <button onClick={this.handleClick} name="multiply">Multiply</button>
         <button onClick={this.handleClick} name="divide">Divide</button>
+        <h1 className="answer">Answer: {this.state.answer}</h1>
       </form>
     )
   }
